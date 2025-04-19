@@ -22,7 +22,16 @@ GROUP_ID = "lololoshkashop24"
 
 
 def get_last_post(group_id, token):
-    """Получение последнего поста из группы ВКонтакте."""
+    """
+    Получение последнего поста из группы ВКонтакте. \n
+    Docstring для get_last_post
+    
+    :param group_id: Id группы VK
+    :type group_id: str
+    :param token: API VK
+    :type token: str
+    :return: Текст поста
+    :rtype: dict[str, Any] | str"""
     vk_session = vk_api.VkApi(token=token)
     vk = vk_session.get_api()
 
@@ -42,14 +51,29 @@ def get_last_post(group_id, token):
 
 
 def extract_keys(post_text):
-    """Извлечение ключей из текста поста."""
+    """
+    Извлечение ключей из текста поста. \n
+    Docstring для extract_keys
+    
+    :param post_text: Текст поста
+    :type post_text: str
+    :return: Возвпащает все совпадения ключей Steam
+    :rtype: list[Any]
+    """
     key_pattern = r'[A-Z0-9\*]{4,}-[A-Z0-9\*]{4,}-[A-Z0-9\*]{4,}'
     keys = re.findall(key_pattern, post_text)
     return keys
 
 
 def resolve_asterisks(keys):
-    """Замена символа * в ключах на числа от 0 до 9."""
+    """
+    Замена символа * в ключах на числа от 0 до 9. \n
+    Docstring для resolve_asterisks
+    
+    :param keys: Массив ключей Steam
+    :type keys: str
+    :return: Массив с замененым знаком * на число от 0 до 9 каждый
+    :rtype: list"""
     resolved_keys = []
     for key in keys:
         if '*' in key:  # Если есть символ *, заменяем его
@@ -64,6 +88,10 @@ def resolve_asterisks(keys):
     return resolved_keys
 
 def key_string():
+    """Docstring для key_string
+    
+    :return: Ключи
+    :rtype: list | None"""
     # Получаем последний пост
     post_data = get_last_post(GROUP_ID,VK_API_KEY)
     if isinstance(post_data, dict):  # Если пост успешно получен

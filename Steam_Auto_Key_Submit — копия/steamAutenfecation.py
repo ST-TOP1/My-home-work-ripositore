@@ -35,7 +35,7 @@ def start_process_cok():
     drivers = [create_browser_cok() for _ in names]
     
 def login():
-    """ Делает автоматический ввод данных аккаунта для входа в аккаунт"""
+    """ Делает автоматический ввод данных аккаунта для входа в аккаунт """
     for i, driver in enumerate(drivers):
         log = driver.find_element(By.CLASS_NAME , "_2GBWeup5cttgbTw8FM3tfx")
         log.send_keys(names[i])
