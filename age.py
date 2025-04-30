@@ -1,10 +1,32 @@
 """Данный модуль написан на языке Python. \n
 Данный модуль работает с возрастом пользоватя. \n
 Основные функции модуля: \n 
+program_age: Запрашивает Имя и возраст \n
 age_100: Выводит через сколько лет исполнится 100 лет \n 
 age_find_date: Выводит в каком году вы родились \n 
 age_to_age: Сколько вам нужно лет чтобы достичь определенного возраста \n
 """
+
+def program_age():
+    while True:
+        name = input("Введите ваше имя: ")
+        age_input = input("Введите ваш возраст: ")
+        if age_input.isdigit():
+            age = int(age_input)
+            if age >= 0:
+                years_to_100 = 100 - age
+                print(f"{name}, вам исполнится 100 лет через {years_to_100} лет.")
+                break
+            else:
+                print("Возраст не может быть отрицательным. Попробуйте снова.")
+        else:
+            print("Пожалуйста, введите корректное число.")
+
+
+
+
+
+
 
 def age_100(name = "Incognito",age = None):
     """Docstring для age_100
@@ -90,6 +112,7 @@ def age_to_age(age, to_age):
         raise ("Неизвестная ошибка")\
 
 def test():
+    program_age()
     print(age_100('Aza', 100))
     print(age_100('Aza', 123))
     print(age_100('Aza', 11))
