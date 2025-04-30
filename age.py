@@ -6,7 +6,7 @@ age_find_date: Выводит в каком году вы родились \n
 age_to_age: Сколько вам нужно лет чтобы достичь определенного возраста \n
 """
 
-def age_100(name,age):
+def age_100(name = "Incognito",age = None):
     """Docstring для age_100
     
     :param name: Имя человека
@@ -15,24 +15,28 @@ def age_100(name,age):
     :type age: int
     Данная функция скажет когда вам исполнится 100 лет
     """
-    try:
-        age = int(age)
-        if age <= 0:
-            if age == 0:
-                return f"{name} вам меньше года"
+    if age == None:
+        age = input("Введите ваш возраст: ")
+    while True:
+        try:
+            age = int(age)
+            if age <= 0:
+                if age == 0:
+                    return f"{name} вам меньше года"
+                else:
+                    return f"Вы родитесь через лет так {-age} {name}"
+            elif age >= 100:
+                if age == 100:
+                    return f"Поздравляем вас {name}, вам 100 лет"
+                else:
+                    return f"{name} ваш сотый день рождения был {age-100} года назат"
             else:
-                return f"Вы родитесь через лет так {-age} {name}"
-        elif age >= 100:
-            if age == 100:
-                return f"Поздравляем вас {name}, вам 100 лет"
-            else:
-                return f"{name} ваш сотый день рождения был {age-100} года назат"
-        else:
-            return f"{name} вам исполнится 100 лет через {100 - age} лет"
-    except ValueError:
-        raise ValueError("Вы ввели не правильное значение в аргумент age, аргумент age должен быть значения int.")
-    except:
-        raise ("Неизвестная ошибка")
+                return f"{name} вам исполнится 100 лет через {100 - age} лет"
+        except ValueError:
+            print("Вы ввели не правильное значение в аргумент age, аргумент age должен быть значения int.")
+            age=input("Введите коректный возраст: ")
+        except:
+            raise ("Неизвестная ошибка")
 
 def age_find_date(age, date):
     """Docstring для age_find_date
@@ -89,6 +93,8 @@ def test():
     print(age_100('Aza', 100))
     print(age_100('Aza', 123))
     print(age_100('Aza', 11))
+    print(age_100('Aza', "f11"))
+    print(age_100('Aza'))
     print()
     print(age_find_date(-2,2025))
     print(age_find_date(2,2025))
