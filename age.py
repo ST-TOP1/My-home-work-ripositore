@@ -1,11 +1,9 @@
-"""
-Данный модуль написан на языке Python.
-Данный модуль работает с возрастом пользоватя.
-Основные функции модуля:
-age_100
-age_find_date
-age_to_age
-
+"""Данный модуль написан на языке Python. \n
+Данный модуль работает с возрастом пользоватя. \n
+Основные функции модуля: \n 
+age_100: Выводит через сколько лет исполнится 100 лет \n 
+age_find_date: Выводит в каком году вы родились \n 
+age_to_age: Сколько вам нужно лет чтобы достичь определенного возраста \n
 """
 
 def age_100(name,age):
@@ -85,16 +83,20 @@ def age_to_age(age, to_age):
     except ValueError:
         raise ValueError("Вы ввели не правильное значение в аргумент age, аргумент age должен быть значения int.")
     except:
-        raise ("Неизвестная ошибка")
-print(age_100('Aza', 100))
-print(age_100('Aza', 123))
-print(age_100('Aza', 11))
-print()
-print(age_find_date(-2,2025))
-print(age_find_date(2,2025))
-print(age_find_date(2026,2025))
-print(age_find_date(0,2025))
-print()
-print(age_to_age(12,100))
-print(age_to_age(-12,100))
-print(age_to_age(12,-100))
+        raise ("Неизвестная ошибка")\
+
+def test():
+    print(age_100('Aza', 100))
+    print(age_100('Aza', 123))
+    print(age_100('Aza', 11))
+    print()
+    print(age_find_date(-2,2025))
+    print(age_find_date(2,2025))
+    print(age_find_date(2026,2025))
+    print(age_find_date(0,2025))
+    print()
+    print(age_to_age(12,100))
+    print(age_to_age(-12,100))
+    print(age_to_age(12,-100))
+
+test()
